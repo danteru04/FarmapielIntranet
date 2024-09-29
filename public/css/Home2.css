@@ -3,3 +3,14 @@
     height : auto;
     object-fit: contain;
 }
+
+.fa-logoFarmapiel:before{
+    content: '';
+    display: inline-block;
+    width: 6em;
+    height: 6em;
+    background-image: url("/img/Imagenes Farmapiel/Farmapiel Logo verde PNG (Transparente).png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: .3em;
+}
