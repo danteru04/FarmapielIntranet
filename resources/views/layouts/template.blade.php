@@ -192,7 +192,11 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-pull-left fa-user"></i>
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                @auth
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{auth::user()->name}}</span>
+                                @else
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Invitado</span>
+                                @endauth
                                 <!--img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg"-->
                             </a>
@@ -222,7 +226,9 @@
                     </ul>
 
                 </nav>
-                <div class="container-fluid">
+                
+                <!-- Begin Page Content -->
+                <div class="container">
 
                     <!-- Page Heading -->
                     @yield('content')
@@ -235,7 +241,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Copyright &copy; Farmapiel 2024</span>
                     </div>
                 </div>
             </footer>

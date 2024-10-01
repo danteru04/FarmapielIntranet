@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
-    return view('layouts.template');
+    return view('FarmapielViews.nosotros');
 });
 
 Auth::routes();
