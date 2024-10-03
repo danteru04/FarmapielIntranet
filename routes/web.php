@@ -3,9 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
-Route::get('/', function () {
+Route::get('/Nosotros', function () {
     return view('FarmapielViews.nosotros');
-});
+}) ->name('nosotros');
 
 Auth::routes();
 

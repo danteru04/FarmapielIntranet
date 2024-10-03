@@ -20,8 +20,16 @@
     background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1)), 
         url("/img/Imagenes Farmapiel/rsrc/glass-skin-2.png");
     background-size: cover;
-    min-height: 55vh;
+    min-height: 75vh;
     min-width: 83vw;
     background-position: center;
     border-radius: 14px;
+}
+
+.blur{
+    background-color: rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 1em;
+    border-radius: 14px;
+    backdrop-filter: blur(30px);
 }
