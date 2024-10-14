@@ -55,8 +55,8 @@
                         <!--h6 class="collapse-header">Custom Components:</h6-->
                         <a class="collapse-item" href={{route('nosotros')}}>Nosotros</a>
                         <a class="collapse-item" href=>Noticias</a>
-                        <a class="collapse-item" href=>Organigrama</a>
-                        <a class="collapse-item" href=>Directorio</a>
+                        <a class="collapse-item" href=>Historia de la Compañía</a>
+                        <a class="collapse-item" href=>Directorio y Organigrama</a>
                         <a class="collapse-item" href=>Contacto</a>
                     </div>
                 </div>
@@ -104,12 +104,12 @@
             @else
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item active">
-                <a href="#" class="btn btn-primary btn-icon-split">
+                <a href={{route('loginGoogle')}} class="btn btn-primary btn-icon-split">
                     <span class="icon text-white-50">
                         <i class="fas fa-sign-in"></i>
                     </span>
                     <span class="text">Iniciar Sesión</span>
-                </a>
+                </a>    
             </li>
 
             @endauth
