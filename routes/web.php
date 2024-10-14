@@ -9,23 +9,23 @@ Route::get('/', function(){
 });
 
 Route::get('/login/google', function () {
-    return Socialite::driver('google')->redirect();
+    return Socialite::driver('google')->stateless()->redirect();
 }) -> name('loginGoogle');
 
 Route::get('/callback', function () {
-    $user = Socialite::driver('google')->user();
+    $user = Socialite::driver('google')->stateless()->user();
 
     // Extract the email and check the domain
     $email = $user->getEmail();
     $domain = substr(strrchr($email, "@"), 1);
 
     if ($domain !== 'farmapiel.com') {
-        return redirect('/Nosotros')->with('error', 'Debes iniciar sesión con un correo de la compañía.');
+        return redirect('/Nosotros')->with('Incorrecto', 'Debes iniciar sesión con un correo de la compañía.');
     }
 
     // Log the user in or create a new user if necessary
     // Auth::login($user);
-    return redirect('/Nosotros');
+    return redirect('/Nosotros')->with('Correct', 'Sesión iniciada correctamente');
 }) -> name('callback');
 
 

@@ -4,6 +4,24 @@
 @section("Descripcion", "Conócenos")
 
 @section("content")
+
+    @if (session('Correcto'))
+            <div class="alert alert-danger alert-dismissable fade show" role="alert">
+            {{ session('Correcto') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+        @if (session('Incorrecto'))
+            <div class="alert alert-danger alert-dismissable fade show" role="alert">
+            {{ session('Incorrecto') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+
     <div class = "fachada">
         <h1 class="h3 mt-3 mb-1 text-white blur">NOSOTROS</h1>
         <p class="mt-4 mb-4 text-justify text-white blur textoCentrado">FARMAPIEL CENTRO INTERNACIONAL DE COSMIATRÍA, S.A. DE C.V. es una empresa farmacéutica mexicana dedicada a la investigación, desarrollo, fabricación y comercialización de productos dermatológicos, con el objetivo de ofrecer soluciones innovadoras y eficaces para el cuidado de la piel se ha consolidado como un referente en el mercado gracias a su enfoque en la calidad y la seguridad de sus productos. Cuenta con más de 30 años brindando a la comunidad médica alternativas innovadoras y de calidad mundial, en beneficio de los pacientes con los más altos estándares de seguridad y calidad de sus productos y procesos.</p>
