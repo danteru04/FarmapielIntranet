@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('equipos', function (Blueprint $table) {
+        //
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('activo');
-            $table->string('estatus');
-            $table->string('locacion');
-            $table->string('tipo');
-            $table->string('nombre_usuario');
-            $table->string('no_serie');
-            $table->string('modelo');
+            $table->string('titulo_noticia');
+            $table->text('contenido');
+            $table->string('imagen_path')->nullable();
+            $table->dateTime('fecha_de_entrada');
+            $table->dateTime('fecha_de_expiracion') -> nullable();
         });
     }
 

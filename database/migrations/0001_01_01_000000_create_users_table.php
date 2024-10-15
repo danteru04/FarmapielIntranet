@@ -3,6 +3,9 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -14,25 +17,46 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('apellido');
+            $table->string('apellidos');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->integer('no_empleado');
+            $table->string('password') -> nullable();
+            $table->bigInteger('no_empleado') -> nullable();
             $table->string('firma_interna');
-            $table->string('area');
-            $table->integer('puesto');
-            $table->integer('celular');
-            $table->integer('locacion');
+            #$table->unsignedBigInteger('id_area') -> nullable();
+            $table->string('puesto') -> nullable();
+            $table->bigInteger('celular') -> nullable();
+            $table->string('locacion');
             $table->rememberToken();
             $table->timestamps();
+
+            /* $table->foreign('id_area') 
+            -> references('id') -> on('areas'); */
         });
 
-        Schema::create('password_reset_tokens', function (Blueprint $table) {
+        DB::table('users')->insert([
+            ['name' => 'Dante Isaac',
+            'apellidos'=> 'Reyes Ugalde',
+            'email' => 'dante.isaac.ru@hotmail.com',
+            'password' => Hash::make('2733920'),
+            'firma_interna' => 'dreyes',
+            'puesto' => 'Becario Sistemas',
+            'celular' => '5651181483',
+            'locacion' => 'SJR']
+        ]);
+
+        /* $user = User::create([
+            'nombres' => 'Dante Isaac',
+            'apellidos' => 'Reyes Ugalde',
+            'email' => 'dante.isaa.ru@hotmail.com',
+            'password' => Hash::make('2733920'),
+        ]); */
+
+       /*  Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
             $table->string('token');
             $table->timestamp('created_at')->nullable();
-        });
+        }); */
 
         Schema::create('sessions', function (Blueprint $table) {
             $table->string('id')->primary();
@@ -50,7 +74,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('users');
-        Schema::dropIfExists('password_reset_tokens');
+        /* Schema::dropIfExists('password_reset_tokens'); */
         Schema::dropIfExists('sessions');
     }
 };

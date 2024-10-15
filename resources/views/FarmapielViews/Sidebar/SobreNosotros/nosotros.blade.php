@@ -32,7 +32,7 @@
 
     <div class="row mt-4">
         <div class="col-lg-6">
-            <div class="card mt-3 black-shadow">
+            <div class="card mt-3 mb-3 shadow">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">Ubicación</h6>
                 </div>
@@ -45,7 +45,7 @@
             
         </div>
         <div class="col-lg-6">
-            <div class="card mt-3">
+            <div class="card mt-3 mb-3 shadow">
                 <div class="card-header">
                     <h6 class="m-0 font-weight-bold text-primary">Mapa</h6>
                 </div>

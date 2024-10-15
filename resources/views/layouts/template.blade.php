@@ -53,7 +53,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <!--h6 class="collapse-header">Custom Components:</h6-->
-                        <a class="collapse-item" href={{route('nosotros')}}>Nosotros</a>
+                        <a class="collapse-item" href="{{route('nosotros')}}">Nosotros</a>
                         <a class="collapse-item" href=>Noticias</a>
                         <a class="collapse-item" href=>Historia de la Compañía</a>
                         <a class="collapse-item" href=>Directorio y Organigrama</a>
@@ -104,12 +104,9 @@
             @else
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item active">
-                <a href={{route('loginGoogle')}} class="btn btn-primary btn-icon-split">
-                    <span class="icon text-white-50">
-                        <i class="fas fa-sign-in"></i>
-                    </span>
-                    <span class="text">Iniciar Sesión</span>
-                </a>    
+                <a href="{{route('loginGoogle')}}" class="btn btn-google btn-user btn-block">
+                    <i class="fab fa-google fa-fw"></i> Login with Google
+                </a> 
             </li>
 
             @endauth
@@ -194,14 +191,7 @@
                                 <i class="fas fa-pull-left fa-user"></i>
                                 @auth
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{auth::user()->name}}</span>
-                                @else
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Invitado</span>
-                                @endauth
-                                <!--img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg"-->
-                            </a>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -221,6 +211,28 @@
                                     Logout
                                 </a>
                             </div>
+                                @else
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Invitado</span>
+                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Iniciar Sesión
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Iniciar Sesión como Administrador
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Configuración
+                                </a>
+                            </div>
+                                @endauth
+                                <!--img class="img-profile rounded-circle"
+                                    src="img/undraw_profile.svg"-->
+                            </a>
+                            <!-- Dropdown - User Information -->
                         </li>
 
                     </ul>
