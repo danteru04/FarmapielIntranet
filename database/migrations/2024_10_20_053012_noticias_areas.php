@@ -16,9 +16,16 @@ return new class extends Migration
             $table->id();
             $table->string('titulo_noticia');
             $table->text('contenido');
+            $table->text('area_id');
             $table->string('imagen_path')->nullable();
-            $table->string("publicado_por");
+            $table->unsignedBigInteger('publicado_por');
             $table->dateTime('fecha_de_entrada');
+
+            $table->foreign('area_id')
+            ->references('id')->on('areas');
+
+            $table->foreign('publicado_por')
+            ->references('id')->on('users');
         });
     }
 

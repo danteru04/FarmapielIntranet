@@ -4,8 +4,9 @@
 @section("Descripcion", "Cuentas Registradas")
 
 @section('content')
-    <h1 class="h3 mb-2 text-gray-800">Cuentas Registradas</h1>
-    <p class="mb-4">Cuentas que han iniciado sesión o han sido registradas en la base de datos de usuarios.</p>
+
+<h1 class="h3 mb-2 text-gray-800">Cuentas Registradas</h1>
+    <p class="mb-4">Areas a la que pertenece el usuario</p>
 
 
     @if (session('Correcto'))
@@ -28,7 +29,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Tabla de Cuentas Registradas</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Tabla de Areas del usuario {{$user->name}}</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -97,5 +98,5 @@
             </div>
         </div>
     </div>
-    
+
 @endsection

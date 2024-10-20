@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('puesto') -> nullable();
             $table->bigInteger('celular') -> nullable();
             $table->string('locacion');
+            $table->string('url_avatar')->nullable();
             $table->rememberToken();
             $table->timestamps();
 

@@ -12,14 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         //
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('loginGoogle', function (Blueprint $table) {
             $table->id();
-            $table->string('titulo_noticia');
-            $table->text('contenido');
-            $table->string('imagen_path')->nullable();
-            $table->string("publicado_por");
-            $table->dateTime('fecha_de_entrada');
+            $table->string('email')->unique();
+            $table->string('name');
+            $table->string('url_avatar');
+            $table->integer('google_id');
+            $table->unsignedBigInteger('user_id');
+
+            $table->foreign('user_id')
+            ->references('id')->on('users');
         });
+
     }
 
     /**

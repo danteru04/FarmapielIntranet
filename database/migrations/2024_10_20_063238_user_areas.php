@@ -12,13 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         //
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('user_areas', function (Blueprint $table) {
             $table->id();
-            $table->string('titulo_noticia');
-            $table->text('contenido');
-            $table->string('imagen_path')->nullable();
-            $table->string("publicado_por");
-            $table->dateTime('fecha_de_entrada');
+            $table->unsignedBigInteger('areas_id');
+            $table->unsignedBigInteger('user_id');
+
+            $table->foreign('area_id')
+            ->references('id')->on('areas');
+
+            $table->foreign('user_id')
+            ->references('id')->on('users');
         });
     }
 

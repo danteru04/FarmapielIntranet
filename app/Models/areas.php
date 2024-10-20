@@ -16,4 +16,12 @@ class areas extends Model
         'nombre_de_area',
         'locacion',
     ];
+
+    public function user(){
+        return $this->belongsToMany(User::class);
+    }
+
+    public function noticias(){
+        return $this->hasMany(noticiasAreas::class);
+    }
 }

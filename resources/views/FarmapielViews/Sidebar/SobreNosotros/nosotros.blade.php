@@ -22,12 +22,12 @@
             </div>
         @endif
 
-    <div class = "fachada">
+    <div class = "fachada shadow">
         <h1 class="h3 mt-3 mb-1 text-white blur">NOSOTROS</h1>
         <p class="mt-4 mb-4 text-justify text-white blur textoCentrado">FARMAPIEL CENTRO INTERNACIONAL DE COSMIATRÍA, S.A. DE C.V. es una empresa farmacéutica mexicana dedicada a la investigación, desarrollo, fabricación y comercialización de productos dermatológicos, con el objetivo de ofrecer soluciones innovadoras y eficaces para el cuidado de la piel se ha consolidado como un referente en el mercado gracias a su enfoque en la calidad y la seguridad de sus productos. Cuenta con más de 30 años brindando a la comunidad médica alternativas innovadoras y de calidad mundial, en beneficio de los pacientes con los más altos estándares de seguridad y calidad de sus productos y procesos.</p>
-        <div>
+        <!--div>
             <p class="quote pr-5 blur-inline">Hacemos más con menos</p>
-        </div>
+        </div-->
     </div>
 
     <div class="row mt-4">
@@ -60,46 +60,36 @@
     </div>
 
     <div class="row mt-4">
-        <div class="card">
+        <div class="card mt-3 mb-3 shadow">
             <div class="card-header">
                 <h6 class="m-0 font-weight-bold text-primary">Propósito de la Empresa</h6>
             </div>
-            <div class="card-body proposito">
-                <div class="col-lg-4">
-                    <p class="m-1 m-1 text-justify textoCentrado-100 blur text-white">
+            <div class="card-body proposito p-3">
+                <div class="col-lg-7">
+                    <p class="m-1 m-1 text-justify textoCentrado-100    ">
                         Proporcionar alternativas terapéuticas en dermatología, que sean innovadoras y de calidad mundial, con la finalidad de brindar salud y bienestar a los pacientes, todo esto en beneficio de la Medicina y con un elevado compromiso con la educación médica continúa.
                     </p>
-                </div>
-
-                <div class= "col-lg-8">
-                    <!--img class="img-proposito" src="/img/Imagenes Farmapiel/rsrc/blood-test-360.jpg" 
-                        srcset="
-                            /img/Imagenes Farmapiel/rsrc/blood-test-360.jpg 360w,
-                            /img/Imagenes Farmapiel/rsrc/blood-test-640.jpg 768w,
-                            /img/Imagenes Farmapiel/rsrc/blood-test-360.jpg 1366w,
-                            /img/Imagenes Farmapiel/rsrc/blood-test-1920.jpg 1920w"
-                        sizes="(max-width: 360px) 360px, 
-                            (max-width: 768px) 768px, 
-                            (max-width: 1366px) 1366px, 
-                            1920px"
-                        alt="Test de Sangre"-->
-                </div>
+                </div>                
             </div>
         </div>
     </div>
         
-    <div class = "row card mt-4">
-        <div class="card-header">
-            <h6 class="m-0 font-weight-bold text-primary">Sueño de la Empresa</h6>
-        </div>
-        <div class="card-body">
-            <div class="col-lg-6">  
-
+    <div class="row mt-4">
+        <div class="card mt-3 mb-3 shadow">
+            <div class="card-header">
+                <h6 class="m-0 font-weight-bold text-primary text-right">Sueño de la Empresa</h6>
             </div>
-            <div class="col-lg-6">
-                <p class="m-1 m-1 text-justify textoCentrado-100">
+            <div class="card-body proposito p-3">
+                <div class="col-lg-5 col-sm-0">
+                    <!-- <p class="m-1 m-1 text-justify textoCentrado-100    ">
+                        Proporcionar alternativas terapéuticas en dermatología, que sean innovadoras y de calidad mundial, con la finalidad de brindar salud y bienestar a los pacientes, todo esto en beneficio de la Medicina y con un elevado compromiso con la educación médica continúa.
+                    </p> -->
+                </div>      
+                <div class="col-lg-7 col-sm-12">
+                    <p  class="m-1 m-1 text-justify textoCentrado-100">
                     Ser líderes en el mercado dermatológico, enfocados en exceder las expectativas de nuestros clientes, a través de un espíritu de servicio e innovación, buscando siempre la superación personal y profesional de nuestros colaboradores, bajo un marco de honestidad y congruencia.
-                </p>
+                    </p>
+                </div>     
             </div>
         </div>
     </div>
