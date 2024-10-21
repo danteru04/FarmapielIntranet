@@ -52,6 +52,6 @@ class User extends Authenticatable
     }
 
     public function areas(){
-        return $this->belongsTo(areas::class);
+        return $this->belongsToMany(areas::class, 'user_areas', 'user_id', 'areas_id');
     }
 }

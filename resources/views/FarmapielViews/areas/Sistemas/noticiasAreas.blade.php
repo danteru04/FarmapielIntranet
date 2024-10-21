@@ -5,7 +5,7 @@
 
 @section('content')
 
-    <div>
+    <div >
         <h1 class="h3 mt-3 mb-1 blur">{{$area->nombre_de_area}}</h1>
         <p class="mt-4 mb-4 text-justify blur textoCentrado">Descripcion del area</p>
         <!--div>
@@ -77,12 +77,11 @@
                         <div class="form-group row">
                             <div class="col-sm-10">
                                 <button type="submit" class="btn btn-primary">Agregar</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             </div>
                         </div>
 
                     </form>
-                    
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

@@ -10,4 +10,8 @@ class user_areas extends Model
     use HasFactory;
     public $timestamps = false;
     protected $table = 'user_areas';
+    protected $fillable = [
+        'areas_id',
+        'user_id',
+    ];
 }

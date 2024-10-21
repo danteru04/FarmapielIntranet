@@ -75,7 +75,9 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Mis Accesos</h6>
                         <a class="collapse-item" href="utilities-color.html">Yo</a>
-                        <a class="collapse-item" href="utilities-color.html">Mi área</a>
+                        @foreach (Auth::user()->areas as $area)
+                            <a class="collapse-item" href="{{route('noticiasAreas', $area->id)}}"> {{$area->nombre_de_area}}</a>
+                        @endforeach
                         <a class="collapse-item" href="utilities-border.html">Descuentos</a>
                     </div>
                 </div>

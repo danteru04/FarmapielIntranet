@@ -17,11 +17,11 @@ return new class extends Migration
             $table->unsignedBigInteger('areas_id');
             $table->unsignedBigInteger('user_id');
 
-            $table->foreign('area_id')
-            ->references('id')->on('areas');
+            $table->foreign('areas_id')
+            ->references('id')->on('areas')->onDelete('cascade');
 
             $table->foreign('user_id')
-            ->references('id')->on('users');
+            ->references('id')->on('users')->onDelete('cascade');
         });
     }
 

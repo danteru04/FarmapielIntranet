@@ -12,20 +12,20 @@ return new class extends Migration
     public function up(): void
     {
         //
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('noticias_areas', function (Blueprint $table) {
             $table->id();
             $table->string('titulo_noticia');
             $table->text('contenido');
-            $table->text('area_id');
+            $table->unsignedBigInteger('area_id');
             $table->string('imagen_path')->nullable();
             $table->unsignedBigInteger('publicado_por');
             $table->dateTime('fecha_de_entrada');
 
             $table->foreign('area_id')
-            ->references('id')->on('areas');
+            ->references('id')->on('areas')->onDelete('cascade');
 
             $table->foreign('publicado_por')
-            ->references('id')->on('users');
+            ->references('id')->on('users')->onDelete('cascade');
         });
     }
 

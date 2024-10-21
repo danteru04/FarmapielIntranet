@@ -14,11 +14,12 @@ class areas extends Model
 
     protected $fillable = [
         'nombre_de_area',
+        'descripcion',
         'locacion',
     ];
 
     public function user(){
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class, 'user_areas', 'areas_id', 'user_id');
     }
 
     public function noticias(){

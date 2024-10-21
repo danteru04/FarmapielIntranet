@@ -15,6 +15,7 @@ return new class extends Migration
         Schema::create('areas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre_de_area');
+            $table->string('descripcion')->nullable();
             $table->string('locacion');
             /* $table->unsignedBigInteger('id_jefe_de_area');
 
@@ -26,10 +27,13 @@ return new class extends Migration
 
         DB::table('areas')->insert([
             ['nombre_de_area' => 'Sistemas',
+            'descripcion' => 'Soporte Técnico y Administración de Sistemas Computarizados',
             'locacion'=> 'SJR'],
             ['nombre_de_area' => 'Recursos Humanos',
+            'descripcion' => 'Reclutamiento y Administración de personal, candidatos y recursos humanos',
             'locacion'=> 'SJR'],
             ['nombre_de_area' => 'Aseguramiento de Calidad',
+            'descripcion' => '',
             'locacion'=> 'SJR'],
             ['nombre_de_area' => 'Direccion',
             'locacion'=> 'SJR'],
