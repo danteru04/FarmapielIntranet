@@ -9,7 +9,7 @@ class noticiasAreas extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $table = 'noticiasAreas';
+    protected $table = 'noticias_areas';
 
     protected $fillable = [
         'titulo_noticia',

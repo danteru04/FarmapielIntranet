@@ -8,8 +8,8 @@
 <h1 class="h3 mb-2 text-gray-800">Areas de Usuario {{$user->name}}</h1>
     <p class="mb-4">Areas a la que pertenece el usuario</p>
 
-    <button class="btn btn-primary" type="button" data-toggle="modal" data-target='#agregar-area-Modal'>
-        Agregar Area
+    <button class="btn btn-primary" value="Agregar Area al usuario" type="button" data-toggle="modal" data-target='#agregar-area-Modal'>
+        <i class="fas fa-plus"></i>
     </button>
 
     @if (session('Correcto'))

@@ -1,90 +1,129 @@
-@extends('layouts.template')
+@extends("layouts.template")
 
-@section("Title", "Sobre Nosotros")
-@section("Descripcion", "Conócenos")
+@section("Title", "Noticias {{$area->nombre_de_area}}")
+@section("Descripcion", "Noicias relevantes del área")
 
-@section('content')
-
-    <div >
-        <h1 class="h3 mt-3 mb-1 blur">{{$area->nombre_de_area}}</h1>
+@section("content")
+    <div class="fachada shadow">
+        <h1 class="h3 mt-3 mb-1 blur">Noticias de {{$area->nombre_de_area}}</h1>
         <p class="mt-4 mb-4 text-justify blur textoCentrado">Descripcion del area</p>
-        <!--div>
-            <p class="quote pr-5 blur-inline">Hacemos más con menos</p>
-        </div-->
     </div>
 
-    <button class="btn btn-primary" type="button" value="Agregar Noticia" data-toggle="modal" data-target='agregar-noticia-Modal'>
+    <button class="btn btn-primary" type="button" value="Agregar Noticia" data-toggle="modal" data-target='#agregar-noticia-Modal'>
         <i class="fas fa-plus"></i>
     </button>
 
-    <div class="row">
-        @foreach ($noticias as $noticia)
-            <div class="col-sm-12 col">
-                <div class="card shadow">
+    @if (session('Correcto'))
+        <div class="alert alert-primary alert-dismissable fade show" role="alert">
+        {{ session('Correcto') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+    @if (session('Incorrecto'))
+        <div class="alert alert-danger alert-dismissable fade show" role="alert">
+        {{ session('Incorrecto') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+
+    <div class="container shadow">
+        <div class="row">
+            @foreach ($area->noticias as $noticia)
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="card text-center shadow my-3">
+                    @if($noticia->imagen_path != null)
                     <img class="card-img-top" src="{{Storage::url($noticia->imagen_path)}}" alt="Imagen Noticia">
+                    @endif
                     <div class="card-body">
-                        <h5 class="card-title">{{$noticia->titulo}}</h5>
+                        <h5 class="card-title"><strong>{{$noticia->titulo_noticia}}</strong></h5>
                         <p class="card-text">{{$noticia->contenido}}</p>
                         <!--a href="#" class="btn btn-primary">Go somewhere</a-->
                     </div>
+                    <div class="card-footer text-muted">
+                        <small>{{$noticia->fecha_de_entrada}}</small> <br>
+                        @foreach($usuarios as $usuario)
+                            @if ($usuario->id == $noticia->publicado_por)
+                            <small>{{$usuario->name}}</small>
+                            @endif
+                        @endforeach
+                    </div>
                 </div>
             </div>
-        @endforeach
+            @endforeach
         </div>
+    </div>
 
-    <!-- Modal -->
-     <div class="modal fade" id="agregar-noticia-Modal" name="agregar-noticia-Modal" tabindex="1"
+     <!-- Modal -->
+     <div class="modal fade" id="agregar-noticia-Modal" tabindex="-1"
      role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Agregar Noticia</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Agregar Noticia a {{$area->nombre_de_area}}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form method="POST" action="{{route('crearNoticia', [Auth::user()->id, $area->id])}}">
+                    <form method="POST" action="{{route('crearNoticia', [Auth::user()->id, $area->id])}}" enctype="multipart/form-data">
                         @csrf
                         @method('POST')
-                        <div class="form-group row">
-                            <label for="txt_titulo" class="col-sm-2 col-form-label">
-                                Titulo Noticia
-                            </label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="txt_titulo" placeholder="titulo">
+                        <div class="form-group row align-items-center mx-1">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Titulo de Noticia</span>
+                                </div>
+                                <input type="text" name="txt_titulo" id="txt_titulo" class="form-control" aria-describedby="basic-addon1" required>
                             </div>
+                            @error('txt_titulo')
+                                <div class="invalid-feedback">Ingresa el titulo de la noticia</div>
+                            @enderror
+                        </div>       
+                        
+                        <div class="form-group row align-items-center">
+                            <div class="col">
+                                <label for="txt_contenido" class="mr-sm-2">
+                                    Contenido de la Noticia
+                                </label>
+                                <div class="col">
+                                    <textarea rows="3" name="txt_contenido" id="txt_contenido" class="form-control" required></textarea>
+                                </div>
+                            </div>
+                            @error('txt_contenido')
+                                <div class="invalid-feedback">Ingresa el nombre del usuario</div>
+                            @enderror
                         </div>
 
+                        <div class="form-group">
+                            <label for="img_imagen">Imagen de la noticia (Opcional)</label>
+                            <input type="file" class="form-control-file" id="img_imagen" name="img_imagen" accept="image/png, image/gif, image/jpeg" >
+                          </div>
+                    
                         <div class="form-group row">
-                            <label for="txt_contenido" class="col-sm-2 col-form-label">
-                                Contenido
-                            </label>
-                            <div class="col-sm-10">
-                                <textarea  class="form-control" id="txt_contenido">
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="img_imagen" class="col-sm-2 col-form-label">
-                                Imagen
-                            </label>
-                            <div class="col-sm-10">
-                                <input class="form-control-file" id="img_imagen">
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-sm-10">
+                            <div class="col">
                                 <button type="submit" class="btn btn-primary">Agregar</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                             </div>
                         </div>
-
                     </form>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
      </div>  
+
+     @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
 
 @endsection

@@ -38,4 +38,4 @@ Route::post('/Admin/verCuentas/delete/{id}',[verCuentasController::class, 'delet
 Route::get('/Nosotros', function () {return view('FarmapielViews.Sidebar.SobreNosotros.nosotros');}) ->name('nosotros');
 
 Route::get('/Area/Noticias/{id}',[noticiasAreasController::class, 'getNoticiasAreas'])->name('noticiasAreas');
-Route::get('/Area/Noticias/Agregar/{id_usuario}/{id_area}', [noticiasAreasController::class, 'store'])->name('crearNoticia');
+Route::post('/Area/Noticias/Agregar/{id_usuario}/{id_area}', [noticiasAreasController::class, 'store'])->name('crearNoticia');

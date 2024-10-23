@@ -23,6 +23,6 @@ class areas extends Model
     }
 
     public function noticias(){
-        return $this->hasMany(noticiasAreas::class);
+        return $this->hasMany(noticiasAreas::class, 'area_id');
     }
 }
