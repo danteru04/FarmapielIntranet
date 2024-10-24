@@ -11,6 +11,10 @@ use Illuminate\Http\Request;
 class user_areasController extends Controller
 {
     //
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
     public function verAreasUsuario($id_usuario){
         $user = User::find($id_usuario);
         $areasFull = areas::all();

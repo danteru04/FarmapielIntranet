@@ -46,6 +46,10 @@ return new class extends Migration
             'locacion' => 'SJR']
         ]);
 
+        User::insert([
+            
+        ]);
+
         /* $user = User::create([
             'nombres' => 'Dante Isaac',
             'apellidos' => 'Reyes Ugalde',

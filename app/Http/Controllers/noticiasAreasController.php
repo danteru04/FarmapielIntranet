@@ -14,11 +14,14 @@ use App\Models\areas;
 class noticiasAreasController extends Controller
 {
     //
+    public function __construct() {
+        $this->middleware('auth');
+    }
 
     public function getNoticiasAreas($id_area){
         $area = areas::find($id_area);
         $usuarios = User::all();
-        return view('FarmapielViews.areas.'.$area->nombre_de_area.'.noticiasAreas', compact('area', 'usuarios'));
+        return view('FarmapielViews.noticiasAreas.noticiasAreas', compact('area', 'usuarios'));
     }
     
     public function store(Request $request, $id_usuario, $id_area){

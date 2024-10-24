@@ -11,7 +11,7 @@
 
     <link href="/sb-admin-2/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="/sb-admin-2/css/sb-admin-2.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/Home2.css">
+    <link rel="stylesheet" href="/css/Home2.css">
     
     <title>@yield("Title", "INTRANET FARMAPIEL")</title>
 </head>
@@ -55,7 +55,6 @@
                         <!--h6 class="collapse-header">Custom Components:</h6-->
                         <a class="collapse-item" href="{{route('nosotros')}}">Nosotros</a>
                         <a class="collapse-item" href=>Noticias</a>
-                        <a class="collapse-item" href=>Historia de la Compañía</a>
                         <a class="collapse-item" href=>Directorio y Organigrama</a>
                         <a class="collapse-item" href=>Contacto</a>
                     </div>
@@ -96,7 +95,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Soporte Técnico</h6>
-                        <a class="collapse-item" href="utilities-color.html">Forumulario de Tickets</a>
+                        <a class="collapse-item" href="https://forms.gle/uo5Ax7sX9da9LKzh7">Forumulario de Tickets</a>
                         <a class="collapse-item" href="utilities-color.html">Buzón de Sugerencias</a>
                     </div>
                 </div>
